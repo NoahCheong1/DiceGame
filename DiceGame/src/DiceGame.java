@@ -42,7 +42,13 @@ public class DiceGame {
 	}
 	private static boolean didIWin(int die1, int die2, String choice)
 	{
-		
+		int even = (die1 + die2)&2;
+		if (even ==0 && choice.equals("even")){
+			return true;
+		}
+		if (even ==1 && choice.equals("odd")){
+			return true;
+		}
 		return false;
 	}
 	
