@@ -10,7 +10,7 @@ public class DiceGame {
 		int die2;
 		String[] playerChoices;
 		language = initLang();
-		String langChoice = getInput(language[lang][10]);
+		String langChoice = getInput(language[lang][12]);
 		lang = Integer.parseInt(langChoice);
 		die1 = roll();
 		die2 = roll();
@@ -50,12 +50,12 @@ public class DiceGame {
 			{"Do you want to play?\nYes\nNo","How many players are there?","yes",
 				"Player ",": [0] Even\n[1] Odd","Die 1: ",
 				"\nDie 2: "," wins!"," loses!",
-				"Do you want to play again?\nYes\nNo","Enter language:\n[0] English\n[1] Hawaiian Pidgen"},
+				"Do you want to play again?\nYes\nNo","even","odd","Enter language:\n[0] English\n[1] Hawaiian Pidgen"},
 			{
 				"Like try?\nYessah\nNo","How many dakine Braddahs?","yessah",
 				"Braddah ", ": [0] Even\n[1] Odd","Die 1: ",
 				"\nDie 2: "," winnah!", " no need win.",
-				"Like try again?\nYessah\nNo"
+				"Like try again?\nYessah\nNo","even","odd"
 			}
 						
 		};	
@@ -64,6 +64,13 @@ public class DiceGame {
 	private static boolean didIWin(int die1, int die2, String choice)
 	{
 		
+		int even = (die1 + die2)&2;
+		if (even ==0 && choice.equals(language[lang][10])){
+			return true;
+		}
+		if (even ==1 && choice.equals(language[lang][11])){
+			return true;
+		}
 		return false;
 	}
 	
